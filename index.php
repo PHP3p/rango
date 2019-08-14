@@ -10,6 +10,18 @@ define('BASEDIR', __DIR__);
 //var_dump(BASEDIR);die;
 include BASEDIR . '/IMooc/Loader.php';
 spl_autoload_register('\\IMooc\Loader::autoloader');
+
+
+$db = new  IMooc\Database\MySQLi();
+$db->connect('127.0.0.1', 'root', 'root', 'caiji');
+$result = $db->query("select * from user limit 1");
+
+if ($result) {
+    $arr = $result->fetch_all();
+    var_dump($arr);
+}
+
+
 /*$stack = new SplStack();
 $stack->push("data\n");
 $stack->push("data1\n");
@@ -48,12 +60,18 @@ $db = IMooc\Database::getInstance();
 $db = IMooc\Database::getInstance();*/
 //echo IMooc\Objects::drop('hello','123');
 //$db = \IMooc\Register::get('db1');
-/*$db = new IMooc\Database\PDO();
-$db->connect('127.0.0.1', 'root', 'root', 'caiji');
-$db->query('show databases');
-$db->close();*/
 
-class Page
+/*var_dump($this->id,
+    $this->name,
+    $this->sex,
+    $this->mobile);
+
+
+$user->name = '王洋';
+$user->sex = '1';
+$user->mobile = '18310312295';
+$user->id = 2;*/
+/*class Page
 {
     protected $strategy;
 
@@ -66,9 +84,9 @@ class Page
         echo "category:";
         $this->strategy->showCategory();
         echo "<br/>";
-        /*if (isset($_GET['female'])) {
+         if (isset($_GET['female'])) {
         } else {
-        }*/
+        }
     }
 
     function setStrategy(\IMooc\UserStrategy $strategy)
@@ -84,4 +102,4 @@ if (isset($_GET['female'])) {
     $strategy = new \IMooc\MaleUserStrategy();
 }
 $page->setStrategy($strategy);
-$page->index();
+$page->index();*/

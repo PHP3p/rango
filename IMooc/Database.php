@@ -6,14 +6,6 @@ namespace IMooc;
  * Date: 2019/8/12
  * Time: 11:17
  */
-interface IDatabase
-{
-    function connect($host, $user, $pwd, $dbname);
-
-    function query($sql);
-
-    function close();
-}
 
 class Database
 {

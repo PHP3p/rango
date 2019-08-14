@@ -1,6 +1,9 @@
 <?php
 
-namespace IMooc;
+namespace IMooc\Database;
+
+
+use IMooc\IDatabase;
 
 /**
  * author: wang yang
